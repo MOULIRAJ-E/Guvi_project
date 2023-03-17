@@ -1,55 +1,43 @@
-$(document).ready(function() {
-    $("#basic-form").validate({
-      rules: {
-        email: {
-            required: true,
-            email: true
-        },
-        password:{
-            required:true,
-            minlength:6
-        }
-      },
-      messages : {
-        email: { 
-          email: " The email should be in the format: abc@domain.com"
-        },
-        password:{
-            required:" Please Provide a password",
-            minlength:"Your password must be atleat 6 chracters long",
-        }
-      }
-    },
-    submitForm=function(){
-      // e.preventDefault();
-      var email = $("input[name=email]").val();
-      var password = $("input[name=password]").val();
-      var formData = {
-        email: email,
-        password: password,
+$(document).ready(function () {
+    console.log("Hi");
+    if (localStorage.getItem("redisId")) {
+      window.location.replace("http://localhost/Guvi_project/profile.html");
+    }
+    $("#basic-form").submit(function (event) {
+      event.preventDefault();
+    //   var email = $("input[name=email]").val();
+    //   var password = $("input[name=password]").val();
+    //   var formData = {
+    //     email: email,
+    //     password: password,
+    //   };
+      let formData = {
+        email: $("#email").val(),
+        password: $("#password").val(),
       };
-      // alert(email);
+      console.log(formData);
       $.ajax({
         type: "POST",
         url: "http://localhost/Guvi_project/php/login.php",
         data: formData,
+  
         success: function (response) {
-          console.log((response));
-          const res=JSON.parse(response);
-          console.log(res);
-          if(res.status=="success")
-          {
-            console.log(res);
-            window.location.href="http://localhost/Guvi_project/profile.html";
+          let res = JSON.parse(response);
+          if (res.status == "success") {
             console.log(res.session_id);
-            // localStorage.setItem("redisid",res.session_id)
+            localStorage.setItem("redisId", res.session_id);
+  
+            if (localStorage.getItem("redisId") != null) {
+              window.location.href = "http://localhost/Guvi_project/profile.html";
+            }
+          } else {
+            console.log(res.message);
+            // showErrorMessage(res.message);
           }
         },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-          // window.location.replace("http://localhost/Guvi_project/profile.html");
-          alert(errorThrown);
-        }
-      });	
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log(errorThrown); // log error message to console
+        },
       });
+    });
   });

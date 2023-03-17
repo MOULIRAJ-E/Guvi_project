@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.but{
+    display: flex !important ;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: blue !important;
+    font: bold;
+}

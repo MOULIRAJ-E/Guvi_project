@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./css/index.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <title>Profile</title>
+  </head>
+  <body class="container">
+    <h1>Profile</h1>
+
+    <div class="" id="loading-message"><p>Loading....</p></div>
+
+    <!-- View Mode -->
+    <div class="view-mode">
+      <p><strong>Name:</strong></p>
+      <p><strong>Email:</strong></p>
+      <p><strong>DOB:</strong> </p>
+      <p><strong>AGE:</strong> </p>
+      <p><strong>CONTACT:</strong> </p>
+      <button class="edit-btn btn btn-primary">Edit</button>
+    </div>
+
+    <!-- Edit Mode -->
+    <div class="edit-mode form-group"style="display: none">
+      <label for="name-input"><strong>Name:</strong></label>
+      <input type="text" id="name-input" value="John Doe" />
+      <br />
+      <label for="age-input"><strong>Age:</strong></label>
+      <input type="text" id="age-input" value="20" />
+      <br />
+      <label for="date-input"><strong>DOB:</strong></label>
+      <input type="text" id="date-input" value="yyyy/mm/dd" />
+      <br />
+      <label for="phone-input"><strong>Contact:</strong></label>
+      <input type="text" id="phone-input" value="555-1234" />
+      <br />
+      <button  class="save-btn btn btn-primary">Save</button>
+      <button  class="cancel-btn btn btn-primary">Cancel</button>
+    </div>
+    <br/> 
+    <button class="logout-button btn btn-primary" id="logout-button">Logout</button>
+  </body>
+  <script src="./js/profile.js" defer></script>
+</html>

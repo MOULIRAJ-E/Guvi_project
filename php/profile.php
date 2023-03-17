@@ -69,6 +69,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'get-data'){
 }
 
 if (isset($_POST['action']) && $_POST['action'] === 'update-data'){
+  $email=$_POST['email'];
   $name = $_POST["name"];
   $data = $_POST["data"];
   $date = $data['date'];

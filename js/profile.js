@@ -79,6 +79,7 @@ $(document).ready(function () {
   $(".edit-btn").click(function () {
     $(".view-mode").hide();
     $(".edit-mode").show();
+    $("#email-input").val(data.email);
     $("#date-input").val(data.date);
     $("#name-input").val(data.name);
     $("#age-input").val(data.age);
@@ -91,6 +92,7 @@ $(document).ready(function () {
   });
 
   $(".save-btn").click(function () {
+    var email = $("#email-input").val();
     var name = $("#name-input").val();
     var date = $("#date-input").val();
     var dobArray = date.split("-");
@@ -98,7 +100,7 @@ $(document).ready(function () {
     var age = $("#age-input").val();
     var contact = $("#phone-input").val();
 
-    data = { ...data, name,date, age, contact };
+    data = { ...data, email,name,date, age, contact };
     setData();
     $(".edit-mode").hide();
     $(".view-mode").show();

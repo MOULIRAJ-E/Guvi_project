@@ -81,15 +81,12 @@ if (isset($_POST['action']) && $_POST['action'] === 'update-data'){
   $filter = ['email' => $email];
   $update = ['$set' => ['age' => $age, 'contact' => $contact , 'date' => $date]];
 
-  // specify options
   $options = ['multi' => false, 'upsert' => false];
 
-  // specify the database and collection to update
   $bulk = new MongoDB\Driver\BulkWrite;
   $bulk->update($filter, $update, $options);
   $result = $manager->executeBulkWrite("$database.$collection", $bulk);
 
-  // check if the update was successful
   if ($result->getModifiedCount() > 0) {
     $response = ['status' => 'success', 'message' => 'updated successfully'];
   } else {

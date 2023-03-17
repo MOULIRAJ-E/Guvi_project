@@ -40,7 +40,6 @@ function showErrorMessage(message) {
 
 $(document).ready(function () {
   $("#loading-message").show();
-  //check the session is valid or not
   $.ajax({
     type: "POST",
     url: "http://localhost/Guvi_project/php/profile.php",
@@ -59,7 +58,6 @@ $(document).ready(function () {
     },
   });
 
-  //get the data
   $.ajax({
     url: "http://localhost/Guvi_project/php/profile.php",
     type: "POST",
@@ -105,7 +103,6 @@ $(document).ready(function () {
     $(".edit-mode").hide();
     $(".view-mode").show();
 
-    //send the updated data
     $.ajax({
       url: "http://localhost/Guvi_project/php/profile.php",
       type: "POST",
@@ -126,7 +123,6 @@ $(document).ready(function () {
 });
 
 let loading = true;
-//logout
 $("#logout-button").click(function (e) {
   e.preventDefault();
   $.ajax({

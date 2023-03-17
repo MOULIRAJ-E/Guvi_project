@@ -17,13 +17,9 @@ $document = [
 
 $bulk = new MongoDB\Driver\BulkWrite;
 
-// Add insert operation to bulk write object
 $bulk->insert($document);
-// Create MongoDB write concern object
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
-// Execute bulk write operation
 $result = $manager->executeBulkWrite("$database.$collection", $bulk, $writeConcern);
-// Print result
 printf("Inserted %d document(s)\n", $result->getInsertedCount());
 
 $host = "localhost";

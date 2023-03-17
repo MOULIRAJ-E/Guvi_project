@@ -32,11 +32,10 @@ $(document).ready(function () {
             }
           } else {
             console.log(res.message);
-            // showErrorMessage(res.message);
           }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-          console.log(errorThrown); // log error message to console
+          console.log(errorThrown);
         },
       });
     });

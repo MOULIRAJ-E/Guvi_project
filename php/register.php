@@ -15,7 +15,7 @@ $document = [
     'date' => $_POST['date'],
 ];
 
-$bulk = new MongoDB\Driver\BulkWrite;
+// $bulk = new MongoDB\Driver\BulkWrite;
 
 $bulk->insert($document);
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
@@ -38,4 +38,9 @@ catch(PDOException $e){
 if (isset($_POST['email']) && $_POST['email']!="" && isset($_POST['password']) && $_POST['password']!=""){
    $sql = "INSERT into register(email,password) VALUES('".addslashes($_POST['email'])."','".addslashes($_POST['password'])."')";
    $conn->query($sql);
+//    $sql = "INSERT into register(email,password) VALUES(:email, :password)";
+//    $stmt = $conn->prepare($sql);
+//    $stmt->bindParam(':email', $_POST['email']);
+//    $stmt->bindParam(':password', $_POST['password']);
+//    $stmt->execute();
 }
